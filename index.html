@@ -240,7 +240,7 @@ document.getElementById("checkoutForm").addEventListener("submit",async e=>{
  const order={name:document.getElementById("customerName").value.trim(),phone:document.getElementById("customerPhone").value.trim(),wilaya:wilayaSelect.value,city:document.getElementById("customerCity").value.trim(),address:document.getElementById("customerAddress").value.trim(),deliveryType:deliveryTypeSelect.value,deliveryFee:deliveryInfo.fee,deliveryDays:deliveryInfo.days,subtotal,products:cart.map(x=>({name:x.name,size:x.size,color:x.color,quantity:x.quantity,price:x.price})),total};
  button.disabled=true;button.textContent="جارٍ إرسال الطلب...";
  try{
-  await fetch("https://script.google.com/macros/s/AKfycby5JwiaqZx19KtCQHL22AWiInwqBahYJScVrdwOIumulN3j7oGouiQSZI_cZ8ZpvDsV/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
+  await fetch("https://script.google.com/macros/s/AKfycbwDxvgS3cVL00GGuqMZQiRIhgsiCVnGLY9WmQFO54DzoOFfXWguVv95vRLDQGkHozOT/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
   showToast(" تم إستلام طلبك .");
  }catch(err){showToast("تعذر إرسال الطلب. تحققي من الإنترنت وحاولي مجددًا.");}
  finally{button.disabled=false;button.textContent=original}
