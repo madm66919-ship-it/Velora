@@ -198,7 +198,7 @@ document.getElementById("checkoutForm").addEventListener("submit",async e=>{
  button.disabled=true;button.textContent="جارٍ إرسال الطلب...";
  try{
   await fetch("https://script.google.com/macros/s/AKfycby5JwiaqZx19KtCQHL22AWiInwqBahYJScVrdwOIumulN3j7oGouiQSZI_cZ8ZpvDsV/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
-  showToast("تم إرسال الطلب مبدئيًا. تحققي من ظهوره في جدول الطلبات.");
+  showToast("تم  إستلام طلبك بنجاح .");
  }catch(err){showToast("تعذر إرسال الطلب. تحققي من الإنترنت وحاولي مجددًا.");}
  finally{button.disabled=false;button.textContent=original}
 });
