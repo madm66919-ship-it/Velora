@@ -58,7 +58,7 @@ footer{background:#fff;padding:32px 5%;text-align:center;border-top:1px solid #e
 .cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid #e9dcdf}.cart-header h3{font-size:17px;color:var(--dark)}.close-button{background:none;border:0;font-size:28px;color:var(--burgundy);line-height:1}
 .cart-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #e9dcdf;animation:fadeUp .25s ease both}.cart-item img{width:72px;height:85px;object-fit:cover;border-radius:7px;background:#eee4df}.cart-item-info{flex:1;min-width:0}.cart-item-info strong{font-size:12px;line-height:1.7}.cart-item-info p{font-size:11px;color:var(--muted);margin-top:4px}.quantity-controls{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}.quantity-controls button{width:27px;height:27px;border:1px solid #dfcbd1;background:white;border-radius:5px;color:var(--burgundy)}.remove-button{border:0!important;background:transparent!important;color:#a53c52!important;font-size:11px;width:auto!important}
 .cart-total{display:flex;justify-content:space-between;gap:10px;margin-top:20px;font-weight:bold;color:var(--dark)}.checkout-button{width:100%;margin-top:17px}
-.empty-cart{text-align:center;padding:45px 10px;color:var(--muted);font-size:13px;line-height:2}.checkout-form{display:none;margin-top:22px}.checkout-form.show{display:block;animation:fadeUp .3s ease}.checkout-form h3{margin-bottom:15px;color:var(--dark)}
+.delivery-summary{margin:16px 0;padding:15px;border:1px solid #eadce4;border-radius:16px;background:linear-gradient(135deg,#fffafd,#f9f1f6);display:grid;gap:12px}.delivery-summary>div{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}.delivery-summary strong{color:var(--dark);text-align:left}.delivery-summary .delivery-grand-total{border-top:1px dashed #d9c4d0;padding-top:12px;font-size:16px;font-weight:800;color:var(--dark)}.delivery-grand-total strong{color:var(--accent,#9b5478);font-size:19px}.empty-cart{text-align:center;padding:45px 10px;color:var(--muted);font-size:13px;line-height:2}.checkout-form{display:none;margin-top:22px}.checkout-form.show{display:block;animation:fadeUp .3s ease}.checkout-form h3{margin-bottom:15px;color:var(--dark)}
 .form-group{margin-bottom:12px}.form-group label{display:block;font-size:11px;margin-bottom:6px}.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid #e2d3d7;background:white;border-radius:6px;padding:11px;outline:none;font-size:12px}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--burgundy);box-shadow:0 0 0 3px #711c3b12}
 .form-note{font-size:10px;color:var(--muted);line-height:1.9;margin:10px 0}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--dark);color:white;padding:12px 20px;border-radius:30px;font-size:12px;z-index:200;opacity:0;transition:.3s;text-align:center;width:max-content;max-width:90%;box-shadow:0 8px 25px #0002}.toast.show{opacity:1;transform:translate(-50%,0)}
 .fly-image{position:fixed;z-index:150;width:52px;height:62px;object-fit:cover;border-radius:8px;pointer-events:none;box-shadow:0 5px 20px #0003;transition:all .65s cubic-bezier(.2,.8,.2,1)}
@@ -89,7 +89,7 @@ footer{background:#fff;padding:32px 5%;text-align:center;border-top:1px solid #e
 <section class="benefits">
 <div class="benefit"><div class="benefit-icon">✦</div><strong>اختيارات أنيقة</strong><span>ألوان تناسب ذوقكِ</span></div>
 <div class="benefit"><div class="benefit-icon">♡</div><strong>اهتمام بالتفاصيل</strong><span>تجربة تسوق مميزة</span></div>
-<div class="benefit"><div class="benefit-icon">♧</div><strong>توصيل داخل الجزائر</strong><span>تُحدد التكلفة عند الطلب</span></div>
+<div class="benefit"><div class="benefit-icon">♧</div><strong>توصيل داخل الجزائر</strong><span>أسعار واضحة حسب الولاية</span></div>
 </section>
 <section class="section" id="products"><div class="section-heading"><div class="eyebrow">DISCOVER YOUR STYLE</div><h2>مجموعة VELORA</h2><p>اختاري الموديل واللون والمقاس الذي يناسبكِ.</p></div><div class="products" id="productsGrid"></div></section>
 <section class="promo" id="about"><h2>أناقتكِ تبدأ من اختياركِ</h2><p>VELORA — لمسة أنثوية راقية لكل يوم.<br>اختاري موديلكِ المفضل وسنجهّز طلبكِ بعناية.</p><a href="#products" class="primary-button">تسوقي الآن</a></section>
@@ -98,7 +98,7 @@ footer{background:#fff;padding:32px 5%;text-align:center;border-top:1px solid #e
 <div class="cart-overlay" id="cartOverlay" onclick="overlayClick(event)"><aside class="cart-panel" aria-label="سلة المشتريات">
 <div class="cart-header"><h3>سلة مشترياتكِ 🛍️</h3><button class="close-button" onclick="toggleCart(false)" aria-label="إغلاق">×</button></div>
 <div id="cartItems"></div>
-<div id="cartSummary" hidden><div class="cart-total"><span>المجموع</span><span id="cartTotal">0 دج</span></div><p class="form-note">مصاريف التوصيل غير محسوبة في المجموع، وسيتم تأكيدها حسب الولاية وطريقة التوصيل.</p><button class="primary-button checkout-button" onclick="showCheckout()">متابعة الطلب</button></div>
+<div id="cartSummary" hidden><div class="cart-total"><span>المجموع</span><span id="cartTotal">0 دج</span></div><p class="form-note">اختاري الولاية وطريقة التوصيل لمعرفة السعر والمدة، وسيُحسب المجموع النهائي تلقائيًا.</p><button class="primary-button checkout-button" onclick="showCheckout()">متابعة الطلب</button></div>
 <form id="checkoutForm" class="checkout-form">
 <h3>معلومات التوصيل</h3>
 <div class="form-group"><label for="customerName">الاسم واللقب *</label><input id="customerName" name="name" required minlength="3" maxlength="100" autocomplete="name"></div>
@@ -107,7 +107,13 @@ footer{background:#fff;padding:32px 5%;text-align:center;border-top:1px solid #e
 <div class="form-group"><label for="customerCity">البلدية *</label><input id="customerCity" name="city" required maxlength="100"></div>
 <div class="form-group"><label for="customerAddress">العنوان بالتفصيل *</label><textarea id="customerAddress" name="address" required rows="2" maxlength="300"></textarea></div>
 <div class="form-group"><label for="deliveryType">طريقة التوصيل *</label><select id="deliveryType" name="delivery" required><option value="">اختاري طريقة التوصيل</option><option value="home">التوصيل إلى المنزل</option><option value="office">التوصيل إلى مكتب شركة التوصيل</option></select></div>
-<p class="form-note">.</p>
+<div class="delivery-summary" id="deliverySummary" aria-live="polite">
+ <div><span>مجموع المنتجات</span><strong id="productsSubtotal">0 دج</strong></div>
+ <div><span>مصاريف التوصيل</span><strong id="shippingFee">اختاري الولاية والطريقة</strong></div>
+ <div><span>مدة التوصيل المتوقعة</span><strong id="shippingDays">—</strong></div>
+ <div class="delivery-grand-total"><span>المجموع مع التوصيل</span><strong id="grandTotal">0 دج</strong></div>
+</div>
+<p class="form-note"></p>
 <button type="submit" class="primary-button checkout-button">إرسال الطلب</button>
 </form></aside></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -180,7 +186,7 @@ function removeItem(index){cart.splice(index,1);renderCart()}
 function renderCart(){
  const container=document.getElementById("cartItems"),summary=document.getElementById("cartSummary");
  const count=cart.reduce((s,x)=>s+x.quantity,0),total=cart.reduce((s,x)=>s+x.price*x.quantity,0);
- document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent=formatPrice(total);summary.hidden=cart.length===0;
+ document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent=formatPrice(total);summary.hidden=cart.length===0;if(document.getElementById("deliverySummary"))updateDeliverySummary();
  if(!cart.length){container.innerHTML='<div class="empty-cart">سلتكِ فارغة حاليًا ♡<br>اكتشفي مجموعتنا واختاري ما يناسبكِ.</div>';document.getElementById("checkoutForm").classList.remove("show");return}
  container.innerHTML=cart.map((item,i)=>`<div class="cart-item"><img src="${item.image}" alt=""><div class="cart-item-info"><strong>${item.name}</strong><p>اللون: ${item.color}</p><p>المقاس: ${item.size}</p><p>${formatPrice(item.price)} · الكمية: ${item.quantity}</p><div class="quantity-controls"><button type="button" onclick="changeQuantity(${i},-1)" aria-label="تقليل الكمية">−</button><span>${item.quantity}</span><button type="button" onclick="changeQuantity(${i},1)" aria-label="زيادة الكمية">+</button><button type="button" class="remove-button" onclick="removeItem(${i})">حذف</button></div></div></div>`).join("");
 }
@@ -189,20 +195,57 @@ function overlayClick(e){if(e.target.id==="cartOverlay")toggleCart(false)}
 function showCheckout(){if(!cart.length)return;document.getElementById("checkoutForm").classList.add("show");document.getElementById("checkoutForm").scrollIntoView({behavior:"smooth",block:"start"})}
 function showToast(message){const toast=document.getElementById("toast");toast.textContent=message;toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove("show"),2800)}
 const wilayas=["أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار","البليدة","البويرة","تمنراست","تبسة","تلمسان","تيارت","تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة","سكيكدة","سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر","ورقلة","وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة","سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان","تيميمون","برج باجي مختار","أولاد جلال","بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير","المنيعة"];
-const wilayaSelect=document.getElementById("customerWilaya");wilayas.forEach(w=>{const o=document.createElement("option");o.value=w;o.textContent=w;wilayaSelect.appendChild(o)});
+const wilayaSelect=document.getElementById("customerWilaya");
+wilayas.forEach(w=>{const o=document.createElement("option");o.value=w;o.textContent=w;wilayaSelect.appendChild(o)});
+const deliveryTypeSelect=document.getElementById("deliveryType");
+const deliveryPrices={
+"أدرار":{days:7,home:900,office:700},"الشلف":{days:4,home:600,office:450},"الأغواط":{days:5,home:700,office:550},"أم البواقي":{days:4,home:650,office:500},
+"باتنة":{days:3,home:600,office:450},"بجاية":{days:3,home:600,office:450},"بسكرة":{days:4,home:650,office:500},"بشار":{days:6,home:850,office:650},
+"البليدة":{days:2,home:500,office:400},"البويرة":{days:3,home:550,office:400},"تمنراست":{days:8,home:1100,office:850},"تبسة":{days:4,home:700,office:550},
+"تلمسان":{days:4,home:650,office:500},"تيارت":{days:4,home:650,office:500},"تيزي وزو":{days:3,home:550,office:400},"الجزائر":{days:1,home:500,office:350},
+"الجلفة":{days:4,home:700,office:550},"جيجل":{days:3,home:600,office:450},"سطيف":{days:3,home:600,office:450},"سعيدة":{days:4,home:700,office:550},
+"سكيكدة":{days:3,home:600,office:450},"سيدي بلعباس":{days:4,home:650,office:500},"عنابة":{days:3,home:600,office:450},"قالمة":{days:4,home:650,office:500},
+"قسنطينة":{days:2,home:600,office:450},"المدية":{days:3,home:550,office:400},"مستغانم":{days:4,home:650,office:500},"المسيلة":{days:4,home:700,office:550},
+"معسكر":{days:4,home:700,office:550},"ورقلة":{days:5,home:800,office:600},"وهران":{days:2,home:500,office:400},"البيض":{days:5,home:800,office:600},
+"إليزي":{days:9,home:1200,office:900},"برج بوعريريج":{days:3,home:600,office:450},"بومرداس":{days:2,home:500,office:400},"الطارف":{days:3,home:650,office:500},
+"تندوف":{days:10,home:1300,office:1000},"تيسمسيلت":{days:4,home:700,office:550},"الوادي":{days:5,home:750,office:600},"خنشلة":{days:4,home:700,office:550},
+"سوق أهراس":{days:4,home:650,office:500},"تيبازة":{days:2,home:500,office:400},"ميلة":{days:3,home:600,office:450},"عين الدفلى":{days:3,home:600,office:450},
+"النعامة":{days:6,home:850,office:650},"عين تموشنت":{days:4,home:650,office:500},"غرداية":{days:5,home:800,office:600},"غليزان":{days:4,home:650,office:500},
+"تيميمون":{days:7,home:950,office:750},"برج باجي مختار":{days:11,home:1400,office:1100},"أولاد جلال":{days:5,home:750,office:600},"بني عباس":{days:7,home:1000,office:800},
+"عين صالح":{days:8,home:1100,office:850},"عين قزام":{days:11,home:1400,office:1100},"تقرت":{days:5,home:800,office:600},"توقرت":{days:5,home:800,office:600},
+"جانت":{days:9,home:1200,office:950},"المغير":{days:5,home:800,office:600},"المنيعة":{days:6,home:900,office:700}
+};
+function getProductsSubtotal(){return cart.reduce((sum,item)=>sum+item.price*item.quantity,0)}
+function getDeliveryInfo(){
+ const w=wilayaSelect.value,t=deliveryTypeSelect.value;
+ const info=deliveryPrices[w];
+ if(!info||!t)return null;
+ return {fee:info[t],days:info.days};
+}
+function updateDeliverySummary(){
+ const subtotal=getProductsSubtotal(),info=getDeliveryInfo();
+ document.getElementById("productsSubtotal").textContent=formatPrice(subtotal);
+ document.getElementById("shippingFee").textContent=info?formatPrice(info.fee):"اختاري الولاية والطريقة";
+ document.getElementById("shippingDays").textContent=info?(info.days+" "+(info.days===1?"يوم":"أيام")):"—";
+ document.getElementById("grandTotal").textContent=formatPrice(subtotal+(info?info.fee:0));
+}
+wilayaSelect.addEventListener("change",updateDeliverySummary);
+deliveryTypeSelect.addEventListener("change",updateDeliverySummary);
 document.getElementById("checkoutForm").addEventListener("submit",async e=>{
  e.preventDefault();const form=e.currentTarget;if(!cart.length){showToast("أضيفي منتجًا إلى السلة أولًا.");return}if(!form.reportValidity())return;
  const button=form.querySelector('button[type="submit"]'),original=button.textContent;
- const total=cart.reduce((s,x)=>s+x.price*x.quantity,0);
- const order={name:document.getElementById("customerName").value.trim(),phone:document.getElementById("customerPhone").value.trim(),wilaya:wilayaSelect.value,city:document.getElementById("customerCity").value.trim(),address:document.getElementById("customerAddress").value.trim(),deliveryType:document.getElementById("deliveryType").value,products:cart.map(x=>({name:x.name,size:x.size,color:x.color,quantity:x.quantity,price:x.price})),total};
+ const subtotal=getProductsSubtotal(),deliveryInfo=getDeliveryInfo();
+ if(!deliveryInfo){showToast("اختاري الولاية وطريقة التوصيل لحساب التكلفة.");return}
+ const total=subtotal+deliveryInfo.fee;
+ const order={name:document.getElementById("customerName").value.trim(),phone:document.getElementById("customerPhone").value.trim(),wilaya:wilayaSelect.value,city:document.getElementById("customerCity").value.trim(),address:document.getElementById("customerAddress").value.trim(),deliveryType:deliveryTypeSelect.value,deliveryFee:deliveryInfo.fee,deliveryDays:deliveryInfo.days,subtotal,products:cart.map(x=>({name:x.name,size:x.size,color:x.color,quantity:x.quantity,price:x.price})),total};
  button.disabled=true;button.textContent="جارٍ إرسال الطلب...";
  try{
   await fetch("https://script.google.com/macros/s/AKfycby5JwiaqZx19KtCQHL22AWiInwqBahYJScVrdwOIumulN3j7oGouiQSZI_cZ8ZpvDsV/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
-  showToast("تم  إستلام طلبك بنجاح .");
+  showToast(" تم إستلام طلبك .");
  }catch(err){showToast("تعذر إرسال الطلب. تحققي من الإنترنت وحاولي مجددًا.");}
  finally{button.disabled=false;button.textContent=original}
 });
-document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();
+document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();updateDeliverySummary();
 </script>
 </body>
 </html>
