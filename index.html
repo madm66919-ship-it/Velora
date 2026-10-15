@@ -1076,19 +1076,66 @@ wilayas.forEach(wilaya => {
   wilayaSelect.appendChild(option);
 });
 
-document.getElementById("checkoutForm").addEventListener("submit", event => {
+document.getElementById("checkoutForm").addEventListener("submit", async event => {
   event.preventDefault();
+
+  const form = event.currentTarget;
 
   if (cart.length === 0) {
     showToast("أضيفي منتجًا إلى السلة أولًا.");
     return;
   }
 
-  if (!event.currentTarget.reportValidity()) return;
+  if (!form.reportValidity()) return;
 
-  // لا يتم إرسال البيانات أو حفظها في هذا الإصدار.
-  // سنضيف الربط الآمن مع Google Sheets في المرحلة التالية.
-  showToast("واجهة الطلب جاهزة. سنفعّل تسجيل الطلبات في الخطوة التالية.");
+  const button = form.querySelector('button[type="submit"]');
+  const originalText = button ? button.textContent : "";
+
+  const total = cart.reduce(
+    (sum, item) => sum + Number(item.price) * Number(item.quantity),
+    0
+  );
+
+  const order = {
+    name: document.getElementById("customerName").value.trim(),
+    phone: document.getElementById("customerPhone").value.trim(),
+    wilaya: document.getElementById("customerWilaya").value,
+    city: document.getElementById("customerCity").value.trim(),
+    address: document.getElementById("customerAddress").value.trim(),
+    deliveryType: document.getElementById("deliveryType").value,
+    products: cart.map(item =>
+      `${item.name} | اللون: ${item.color || ""} | الكمية: ${item.quantity} | السعر: ${item.price} دج`
+    ).join(" ; "),
+    total: total
+  };
+
+  if (button) {
+    button.disabled = true;
+    button.textContent = "جارٍ إرسال الطلب...";
+  }
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbzioVc8sbXtnN1y-ei6GSRZ_O8W7GB9i6TVTTS7s2AoiBEdDZF8FP_5dc72ZJsWHire/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=UTF-8"
+        },
+        body: JSON.stringify(order)
+      }
+    );
+
+    showToast("تم إرسال الطلب. تحققي من تسجيله في جدول الطلبات.");
+  } catch (error) {
+    showToast("تعذر إرسال الطلب. تحققي من الإنترنت وحاولي مجددًا.");
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = originalText;
+    }
+  }
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
