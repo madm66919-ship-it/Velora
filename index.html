@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6b1836">
+<meta name="description" content="VELORA - اكتشفي أناقة الحجابات بلمسة فاخرة في الجزائر">
+<title>VELORA | أناقتك تبدأ من التفاصيل</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --burgundy: #711c3b;
+  --dark: #411020;
+  --gold: #c9a66b;
+  --cream: #fffaf4;
+  --text: #30232a;
+  --muted: #8c7a80;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cairo', Tahoma, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.announcement {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 9px 12px;
+  font-size: 11px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,250,244,.96);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #eadfe1;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 13px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.logo small {
+  display: block;
+  font-family: 'Cairo', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+}
+
+.cart-button {
+  border: 1px solid #dfcbd1;
+  background: white;
+  color: var(--burgundy);
+  padding: 9px 13px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.hero {
+  min-height: 530px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background:
+    radial-gradient(ellipse at 80% 30%, #f0d9dc 0%, transparent 45%),
+    linear-gradient(135deg, #fffaf4, #f4e8e6);
+  overflow: hidden;
+}
+
+.hero-content {
+  padding: 75px 10% 65px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideIn .8s ease both;
+}
+
+.eyebrow {
+  color: var(--burgundy);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(35px, 5vw, 59px);
+  line-height: 1.45;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: var(--burgundy);
+}
+
+.hero p {
+  font-size: 14px;
+  line-height: 2.1;
+  color: #76616a;
+  max-width: 440px;
+  margin-bottom: 25px;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 5px;
+  background: var(--burgundy);
+  color: white;
+  padding: 14px 25px;
+  font-weight: bold;
+  font-size: 13px;
+  width: fit-content;
+  transition: .3s;
+  box-shadow: 0 8px 20px #711c3b25;
+}
+
+.primary-button:hover {
+  background: var(--dark);
+  transform: translateY(-3px);
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.hero-frame {
+  width: min(85%, 400px);
+  height: 430px;
+  border-radius: 190px 190px 12px 12px;
+  overflow: hidden;
+  border: 7px solid #ffffffb0;
+  box-shadow: 0 20px 60px #41102018;
+  animation: float 5s ease-in-out infinite;
+  background: #ead9d5;
+}
+
+.hero-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floating-note {
+  position: absolute;
+  bottom: 55px;
+  left: 2%;
+  padding: 13px 18px;
+  border-radius: 7px;
+  background: white;
+  color: var(--burgundy);
+  box-shadow: 0 8px 30px #41102012;
+  font-size: 11px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  border-bottom: 1px solid #f0e6e4;
+}
+
+.benefit {
+  text-align: center;
+  padding: 23px 8px;
+  border-left: 1px solid #f0e6e4;
+}
+
+.benefit-icon {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.benefit strong {
+  display: block;
+  color: var(--dark);
+  font-size: 12px;
+}
+
+.benefit span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 75px 5%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  font-size: clamp(25px, 4vw, 36px);
+  color: var(--dark);
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 9px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #f0e6e4;
+  border-radius: 9px;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+  animation: fadeUp .7s ease both;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px #41102012;
+}
+
+.product-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  background: #eee4df;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.06);
+}
+
+.product-label {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: white;
+  color: var(--burgundy);
+  padding: 5px 10px;
+  font-size: 9px;
+  border-radius: 20px;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product-info h3 {
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.product-info p {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.price {
+  color: var(--burgundy);
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.price small {
+  font-size: 10px;
+}
+
+.color-title {
+  font-size: 10px;
+  margin: 12px 0 8px;
+  color: #75636a;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.color-option {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  outline: 1px solid #dfd4d5;
+  transition: .2s;
+}
+
+.color-option.selected {
+  outline: 2px solid var(--burgundy);
+  transform: scale(1.08);
+}
+
+.add-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 11px 8px;
+  border: 1px solid var(--burgundy);
+  border-radius: 4px;
+  background: white;
+  color: var(--burgundy);
+  font-size: 11px;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.add-button:hover {
+  background: var(--burgundy);
+  color: white;
+}
+
+.promo {
+  background: var(--dark);
+  color: white;
+  padding: 45px 6%;
+  text-align: center;
+}
+
+.promo h2 {
+  font-size: clamp(23px, 4vw, 35px);
+  margin-bottom: 8px;
+}
+
+.promo p {
+  color: #e5cbd3;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.promo .primary-button {
+  margin-top: 20px;
+  background: var(--gold);
+  color: var(--dark);
+}
+
+footer {
+  background: #fff;
+  padding: 35px 5%;
+  text-align: center;
+  border-top: 1px solid #eee3e2;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 2;
+}
+
+.footer-copy {
+  border-top: 1px solid #eee3e2;
+  margin-top: 22px;
+  padding-top: 18px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: #18081075;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: min(420px, 92%);
+  background: var(--cream);
+  padding: 22px;
+  transform: translateX(-100%);
+  transition: .3s;
+  overflow-y: auto;
+}
+
+.cart-overlay.open .cart-panel {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #e9dcdf;
+}
+
+.close-button {
+  background: none;
+  border: 0;
+  font-size: 25px;
+  color: var(--burgundy);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e9dcdf;
+}
+
+.cart-item img {
+  width: 65px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info strong {
+  font-size: 12px;
+}
+
+.cart-item-info p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.quantity-controls button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #dfcbd1;
+  background: white;
+  border-radius: 4px;
+}
+
+.remove-button {
+  border: 0;
+  background: transparent;
+  color: #a53c52;
+  font-size: 11px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  font-weight: bold;
+}
+
+.checkout-button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 50px 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.checkout-form {
+  display: none;
+  margin-top: 25px;
+}
+
+.checkout-form.show {
+  display: block;
+}
+
+.checkout-form h3 {
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.form-group {
+  margin-bottom: 13px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid #e2d3d7;
+  background: white;
+  border-radius: 5px;
+  padding: 11px;
+  outline: none;
+  font-size: 12px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--burgundy);
+}
+
+.form-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 100px);
+  background: var(--dark);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  z-index: 200;
+  opacity: 0;
+  transition: .3s;
+  text-align: center;
+  width: max-content;
+  max-width: 90%;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@media (max-width: 850px) {
+  .nav-links { gap: 12px; }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .product-image { height: 230px; }
+  .section { padding: 55px 4%; }
+}
+
+@media (max-width: 600px) {
+  .navbar { padding: 11px 4%; }
+  .logo { font-size: 25px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-content { padding: 45px 7% 25px; text-align: center; align-items: center; }
+  .hero h1 { font-size: 37px; }
+  .hero p { font-size: 12px; }
+  .hero-visual { min-height: 310px; padding: 10px 25px 30px; }
+  .hero-frame { width: 75%; height: 300px; }
+  .floating-note { bottom: 35px; left: 3%; }
+  .benefit { padding: 17px 4px; }
+  .benefit strong { font-size: 10px; }
+  .benefit span { font-size: 9px; }
+  .product-image { height: 205px; }
+  .product-info { padding: 11px; }
+  .product-info h3 { font-size: 12px; }
+  .price { font-size: 16px; }
+  .color-option { width: 22px; height: 22px; }
+  .section-heading { margin-bottom: 25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  VELORA · أناقتكِ تبدأ من التفاصيل · توصيل إلى ولايات الجزائر
+</div>
+
+<header>
+  <nav class="navbar">
+    <a href="#" class="logo">
+      VELORA
+      <small>MODEST ELEGANCE</small>
+    </a>
+
+    <div class="nav-links">
+      <a href="#">الرئيسية</a>
+      <a href="#products">المجموعة</a>
+      <a href="#about">من نحن</a>
+    </div>
+
+    <button class="cart-button" onclick="toggleCart(true)">
+      🛍️ السلة <span id="cartCount">0</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">THE VELORA COLLECTION</div>
+    <h1>أناقة تليق بكِ،<br><span>في كل التفاصيل.</span></h1>
+    <p>
+      اكتشفي مجموعتنا المختارة من الحجابات،
+      حيث تلتقي الألوان الراقية بالبساطة والأناقة
+      لتكملي إطلالتكِ كل يوم.
+    </p>
+    <a href="#products" class="primary-button">اكتشفي المجموعة ←</a>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-frame">
+      <img
+        src="https://images.unsplash.com/photo-1583391733956-6c78276477e7?auto=format&fit=crop&w=800&q=85"
+        alt="إلهام للأزياء المحتشمة"
+      >
+    </div>
+    <div class="floating-note">✦ Elegance in every detail</div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="benefit">
+    <div class="benefit-icon">✦</div>
+    <strong>اختيارات أنيقة</strong>
+    <span>ألوان تناسب ذوقكِ</span>
+  </div>
+  <div class="benefit">
+    <div class="benefit-icon">♡</div>
+    <strong>اهتمام بالتفاصيل</strong>
+    <span>تجربة تسوق مميزة</span>
+  </div>
+  <div class="benefit">
+    <div class="benefit-icon">♧</div>
+    <strong>توصيل داخل الجزائر</strong>
+    <span>تُحدد التكلفة عند الطلب</span>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-heading">
+    <div class="eyebrow">DISCOVER YOUR STYLE</div>
+    <h2>مجموعة VELORA</h2>
+    <p>اختاري الموديل واللون الذي يعبر عن أناقتكِ.</p>
+  </div>
+
+  <div class="products" id="productsGrid"></div>
+</section>
+
+<section class="promo" id="about">
+  <h2>أناقتكِ تبدأ من اختياركِ</h2>
+  <p>
+    VELORA — لمسة أنثوية راقية لكل يوم.<br>
+    اكتشفي مجموعتنا واختاري ألوانكِ المفضلة.
+  </p>
+  <a href="#products" class="primary-button">تسوقي الآن</a>
+</section>
+</main>
+
+<footer>
+  <div class="logo">
+    VELORA
+    <small>MODEST ELEGANCE</small>
+  </div>
+  <p>أناقتكِ تبدأ من التفاصيل.</p>
+  <p>متجر إلكتروني للحجابات في الجزائر 🇩🇿</p>
+  <div class="footer-copy">© <span id="year"></span> VELORA. جميع الحقوق محفوظة.</div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="overlayClick(event)">
+  <aside class="cart-panel" aria-label="سلة المشتريات">
+    <div class="cart-header">
+      <h3>سلة مشترياتكِ 🛍️</h3>
+      <button class="close-button" onclick="toggleCart(false)" aria-label="إغلاق">×</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div id="cartSummary" hidden>
+      <div class="cart-total">
+        <span>المجموع</span>
+        <span id="cartTotal">0 دج</span>
+      </div>
+      <p class="form-note">مصاريف التوصيل غير محسوبة بعد، وسيتم تحديدها قبل تأكيد الطلب.</p>
+      <button class="primary-button checkout-button" onclick="showCheckout()">
+        متابعة الطلب
+      </button>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <h3>معلومات التوصيل</h3>
+
+      <div class="form-group">
+        <label for="customerName">الاسم واللقب *</label>
+        <input id="customerName" name="name" required minlength="3" maxlength="100" autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label for="customerPhone">رقم الهاتف *</label>
+        <input id="customerPhone" name="phone" type="tel" required
+          inputmode="tel" pattern="(\+213|0)(5|6|7)[0-9]{8}"
+          placeholder="0550123456" autocomplete="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="customerWilaya">الولاية *</label>
+        <select id="customerWilaya" name="wilaya" required>
+          <option value="">اختاري الولاية</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="customerCity">البلدية *</label>
+        <input id="customerCity" name="city" required maxlength="100">
+      </div>
+
+      <div class="form-group">
+        <label for="customerAddress">العنوان بالتفصيل *</label>
+        <textarea id="customerAddress" name="address" required rows="2" maxlength="300"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="deliveryType">طريقة التوصيل *</label>
+        <select id="deliveryType" name="delivery" required>
+          <option value="">اختاري طريقة التوصيل</option>
+          <option value="home">التوصيل إلى المنزل</option>
+          <option value="office">التوصيل إلى مكتب شركة التوصيل</option>
+        </select>
+      </div>
+
+      <p class="form-note">
+        الأسعار ومصاريف التوصيل تقديرية إلى حين ربط المتجر ببياناتك الفعلية.
+        لن يتم إرسال الطلب إلى أي جهة في هذا الإصدار التجريبي.
+      </p>
+
+      <button type="submit" class="primary-button checkout-button">
+        تجهيز تفاصيل الطلب
+      </button>
+    </form>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const COLORS = [
+  {name: "أسود", hex: "#262326"},
+  {name: "عاجي", hex: "#eee4d3"},
+  {name: "عنابي", hex: "#711c3b"},
+  {name: "بيج", hex: "#c7ad91"},
+  {name: "وردي هادئ", hex: "#d5a9ad"}
+];
+
+// هذه منتجات وأسعار وصور تجريبية للتصميم فقط.
+const products = [
+  {
+    id: 1,
+    name: "حجاب VELORA CLASSIC",
+    description: "أناقة كلاسيكية لكل يوم",
+    price: 1500,
+    image: "https://images.unsplash.com/photo-1583391733956-6c78276477e7?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 2,
+    name: "حجاب VELORA SOFT",
+    description: "لمسة ناعمة وإطلالة هادئة",
+    price: 1800,
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 3,
+    name: "حجاب VELORA ROYAL",
+    description: "تفاصيل أنيقة للمناسبات",
+    price: 2000,
+    image: "https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 4,
+    name: "حجاب VELORA DAILY",
+    description: "بساطة تناسب يومكِ",
+    price: 1700,
+    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=700&q=80"
+  }
+];
+
+let cart = [];
+const selectedColors = {};
+
+const formatPrice = amount =>
+  new Intl.NumberFormat("fr-DZ").format(amount) + " دج";
+
+function renderProducts() {
+  const grid = document.getElementById("productsGrid");
+
+  grid.innerHTML = products.map((product, index) => {
+    const selected = selectedColors[product.id] || COLORS[0].name;
+
+    return `
+      <article class="product-card" style="animation-delay:${index * 100}ms">
+        <div class="product-image">
+          <img src="${product.image}"
+               alt="${product.name}"
+               loading="lazy"
+               onerror="this.style.opacity='.15'">
+          <span class="product-label">VELORA</span>
+        </div>
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <div class="price">${formatPrice(product.price)}</div>
+          <div class="color-title">اختاري اللون: <span id="color-${product.id}">${selected}</span></div>
+          <div class="color-options">
+            ${COLORS.map(color => `
+              <button type="button"
+                class="color-option ${selected === color.name ? "selected" : ""}"
+                style="background:${color.hex}"
+                aria-label="${color.name}"
+                aria-pressed="${selected === color.name}"
+                title="${color.name}"
+                onclick="selectColor(${product.id}, '${color.name}')">
+              </button>
+            `).join("")}
+          </div>
+          <button type="button" class="add-button" onclick="addToCart(${product.id})">
+            + أضيفي إلى السلة
+          </button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function selectColor(productId, colorName) {
+  selectedColors[productId] = colorName;
+  renderProducts();
+}
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  const color = selectedColors[productId] || COLORS[0].name;
+
+  const existing = cart.find(item =>
+    item.id === productId && item.color === color
+  );
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      color,
+      quantity: 1
+    });
+  }
+
+  renderCart();
+  showToast("تمت إضافة المنتج إلى سلتكِ ♡");
+}
+
+function changeQuantity(index, delta) {
+  if (!cart[index]) return;
+
+  cart[index].quantity += delta;
+
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  const summary = document.getElementById("cartSummary");
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = formatPrice(total);
+  summary.hidden = cart.length === 0;
+
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="empty-cart">سلتكِ فارغة حاليًا ♡<br>اكتشفي مجموعتنا واختاري ما يناسبكِ.</div>';
+    document.getElementById("checkoutForm").classList.remove("show");
+    return;
+  }
+
+  container.innerHTML = cart.map((item, index) => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="">
+      <div class="cart-item-info">
+        <strong>${item.name}</strong>
+        <p>اللون: ${item.color}</p>
+        <p>${formatPrice(item.price)}</p>
+        <div class="quantity-controls">
+          <button type="button" onclick="changeQuantity(${index}, -1)" aria-label="تقليل الكمية">−</button>
+          <span>${item.quantity}</span>
+          <button type="button" onclick="changeQuantity(${index}, 1)" aria-label="زيادة الكمية">+</button>
+          <button type="button" class="remove-button" onclick="removeItem(${index})">حذف</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleCart(open) {
+  document.getElementById("cartOverlay").classList.toggle("open", open);
+  document.body.style.overflow = open ? "hidden" : "";
+}
+
+function overlayClick(event) {
+  if (event.target.id === "cartOverlay") {
+    toggleCart(false);
+  }
+}
+
+function showCheckout() {
+  if (cart.length === 0) return;
+
+  document.getElementById("checkoutForm").classList.add("show");
+  document.getElementById("checkoutForm").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+const wilayas = [
+  "أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة",
+  "بشار","البليدة","البويرة","تمنراست","تبسة","تلمسان","تيارت",
+  "تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة","سكيكدة",
+  "سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم",
+  "المسيلة","معسكر","ورقلة","وهران","البيض","إليزي","برج بوعريريج",
+  "بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة",
+  "سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت",
+  "غرداية","غليزان","تيميمون","برج باجي مختار","أولاد جلال",
+  "بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير",
+  "المنيعة","آفلو","بريكة","قصر الشلالة","مسعد","عين وسارة",
+  "بوسعادة","الأبيض سيدي الشيخ","القنطرة","بئر العاتر","قصر البخاري",
+  "العريشة","قصر الشلالة"
+];
+
+const wilayaSelect = document.getElementById("customerWilaya");
+
+wilayas.forEach(wilaya => {
+  const option = document.createElement("option");
+  option.value = wilaya;
+  option.textContent = wilaya;
+  wilayaSelect.appendChild(option);
+});
+
+document.getElementById("checkoutForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (cart.length === 0) {
+    showToast("أضيفي منتجًا إلى السلة أولًا.");
+    return;
+  }
+
+  if (!event.currentTarget.reportValidity()) return;
+
+  // لا يتم إرسال البيانات أو حفظها في هذا الإصدار.
+  // سنضيف الربط الآمن مع Google Sheets في المرحلة التالية.
+  showToast("واجهة الطلب جاهزة. سنفعّل تسجيل الطلبات في الخطوة التالية.");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+      </html>
