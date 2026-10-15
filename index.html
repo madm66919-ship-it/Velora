@@ -194,10 +194,10 @@ document.getElementById("checkoutForm").addEventListener("submit",async e=>{
  e.preventDefault();const form=e.currentTarget;if(!cart.length){showToast("أضيفي منتجًا إلى السلة أولًا.");return}if(!form.reportValidity())return;
  const button=form.querySelector('button[type="submit"]'),original=button.textContent;
  const total=cart.reduce((s,x)=>s+x.price*x.quantity,0);
- const order={name:document.getElementById("customerName").value.trim(),phone:document.getElementById("customerPhone").value.trim(),wilaya:wilayaSelect.value,city:document.getElementById("customerCity").value.trim(),address:document.getElementById("customerAddress").value.trim(),deliveryType:document.getElementById("deliveryType").value,products:cart.map(x=>`${x.name} | اللون: ${x.color} | المقاس: ${x.size} | الكمية: ${x.quantity} | السعر: ${x.price} دج`).join(" ; "),total};
+ const order={name:document.getElementById("customerName").value.trim(),phone:document.getElementById("customerPhone").value.trim(),wilaya:wilayaSelect.value,city:document.getElementById("customerCity").value.trim(),address:document.getElementById("customerAddress").value.trim(),deliveryType:document.getElementById("deliveryType").value,products:cart.map(x=>({name:x.name,size:x.size,color:x.color,quantity:x.quantity,price:x.price})),total};
  button.disabled=true;button.textContent="جارٍ إرسال الطلب...";
  try{
-  await fetch("https://script.google.com/macros/s/AKfycbzioVc8sbXtnN1y-ei6GSRZ_O8W7GB9i6TVTTS7s2AoiBEdDZF8FP_5dc72ZJsWHire/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
+  await fetch("https://script.google.com/macros/s/AKfycby5JwiaqZx19KtCQHL22AWiInwqBahYJScVrdwOIumulN3j7oGouiQSZI_cZ8ZpvDsV/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(order)});
   showToast("تم إرسال الطلب مبدئيًا. تحققي من ظهوره في جدول الطلبات.");
  }catch(err){showToast("تعذر إرسال الطلب. تحققي من الإنترنت وحاولي مجددًا.");}
  finally{button.disabled=false;button.textContent=original}
